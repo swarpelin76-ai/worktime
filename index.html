@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4CAF50">
+    <meta name="description" content="Application PWA pour tracker votre temps de travail">
+    <title>WorkTime - Tracker de Temps</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%234CAF50' width='192' height='192'/><text x='50%' y='50%' font-size='100' fill='white' text-anchor='middle' dominant-baseline='middle'>⏱</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%234CAF50' width='192' height='192'/><text x='50%' y='50%' font-size='100' fill='white' text-anchor='middle' dominant-baseline='middle'>⏱</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⏱ WorkTime</h1>
+            <p class="subtitle">Tracker de Temps de Travail</p>
+        </header>
+
+        <main>
+            <!-- Formulaire d'ajout de tâche -->
+            <section class="form-section">
+                <h2>Ajouter une Tâche</h2>
+                <div class="form-group">
+                    <input 
+                        type="text" 
+                        id="taskName" 
+                        placeholder="Nom de la tâche"
+                        class="input-field"
+                    >
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input 
+                            type="number" 
+                            id="hours" 
+                            placeholder="Heures" 
+                            min="0" 
+                            max="24"
+                            value="0"
+                            class="input-field"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <input 
+                            type="number" 
+                            id="minutes" 
+                            placeholder="Minutes" 
+                            min="0" 
+                            max="59"
+                            value="0"
+                            class="input-field"
+                        >
+                    </div>
+                </div>
+                <button id="addBtn" class="btn btn-primary">Ajouter</button>
+            </section>
+
+            <!-- Affichage du temps total -->
+            <section class="stats-section">
+                <div class="stat-card">
+                    <h3>Temps Total</h3>
+                    <p class="stat-value" id="totalTime">0h 0m</p>
+                </div>
+            </section>
+
+            <!-- Liste des tâches -->
+            <section class="tasks-section">
+                <h2>Tâches du Jour</h2>
+                <div id="tasksList" class="tasks-list">
+                    <p class="empty-state">Aucune tâche pour le moment</p>
+                </div>
+            </section>
+
+            <!-- Bouton pour vider -->
+            <section class="actions-section">
+                <button id="clearBtn" class="btn btn-danger">Effacer Tout</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>WorkTime © 2026 - Tous vos temps en un seul endroit</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
